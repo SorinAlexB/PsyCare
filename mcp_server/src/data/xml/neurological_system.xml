@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neurological_expert_system>
+  
+  <!-- KNOWLEDGE BASE -->
+  <knowledge_base>
+    
+    <!-- Symptoms -->
+    <symptoms>
+      <symptom id="excessive_nervousness" name="Excessive Nervousness"/>
+      <symptom id="persistent_worry" name="Persistent Worry"/>
+      <symptom id="heart_palpitations" name="Heart Palpitations"/>
+      <symptom id="excessive_sweating" name="Excessive Sweating"/>
+      <symptom id="tremors" name="Tremors"/>
+      <symptom id="chronic_fatigue" name="Chronic Fatigue"/>
+      <symptom id="concentration_difficulties" name="Concentration Difficulties"/>
+      <symptom id="irritability" name="Irritability"/>
+      <symptom id="muscle_tension" name="Muscle Tension"/>
+      <symptom id="sleep_disturbances" name="Sleep Disturbances"/>
+      <symptom id="persistent_sadness" name="Persistent Sadness"/>
+      <symptom id="loss_of_interest" name="Loss of Interest"/>
+      <symptom id="appetite_changes" name="Appetite Changes"/>
+      <symptom id="suicidal_thoughts" name="Suicidal Thoughts"/>
+      <symptom id="guilt_feelings" name="Guilt Feelings"/>
+      <symptom id="pulsating_headache" name="Pulsating Headache"/>
+      <symptom id="light_sensitivity" name="Light Sensitivity"/>
+      <symptom id="nausea_vomiting" name="Nausea/Vomiting"/>
+      <symptom id="seizures" name="Seizures"/>
+      <symptom id="loss_of_consciousness" name="Loss of Consciousness"/>
+      <symptom id="muscle_rigidity" name="Muscle Rigidity"/>
+      <symptom id="resting_tremor" name="Resting Tremor"/>
+      <symptom id="slowness_of_movement" name="Slowness of Movement"/>
+      <symptom id="postural_instability" name="Postural Instability"/>
+      <symptom id="recent_memory_loss" name="Recent Memory Loss"/>
+      <symptom id="time_space_disorientation" name="Time/Space Disorientation"/>
+      <symptom id="speech_difficulties" name="Speech Difficulties"/>
+      <symptom id="personality_changes" name="Personality Changes"/>
+      <symptom id="judgment_difficulties" name="Judgment Difficulties"/>
+      <symptom id="limb_numbness" name="Limb Numbness"/>
+      <symptom id="tingling_sensation" name="Tingling Sensation"/>
+      <symptom id="muscle_weakness" name="Muscle Weakness"/>
+      <symptom id="neuropathic_pain" name="Neuropathic Pain"/>
+      <symptom id="projectile_vomiting" name="Projectile Vomiting"/>
+      <symptom id="morning_headache" name="Morning Headache"/>
+    </symptoms>
+    
+    <!-- Diseases -->
+    <diseases>
+      <disease id="generalized_anxiety_disorder" name="Generalized Anxiety Disorder"/>
+      <disease id="panic_disorder" name="Panic Disorder"/>
+      <disease id="major_depression" name="Major Depression"/>
+      <disease id="chronic_migraine" name="Chronic Migraine"/>
+      <disease id="epilepsy" name="Epilepsy"/>
+      <disease id="parkinsons_disease" name="Parkinson's Disease"/>
+      <disease id="alzheimers_disease" name="Alzheimer's Disease"/>
+      <disease id="peripheral_neuropathy" name="Peripheral Neuropathy"/>
+      <disease id="brain_tumor" name="Brain Tumor"/>
+      <disease id="multiple_sclerosis" name="Multiple Sclerosis"/>
+    </diseases>
+    
+    <!-- Risk Factors -->
+    <risk_factors>
+      <risk_factor id="chronic_stress" name="Chronic Stress"/>
+      <risk_factor id="genetic_predisposition" name="Genetic Predisposition"/>
+      <risk_factor id="head_trauma" name="Head Trauma"/>
+      <risk_factor id="advanced_age" name="Advanced Age"/>
+      <risk_factor id="diabetes" name="Diabetes"/>
+      <risk_factor id="hypertension" name="Hypertension"/>
+      <risk_factor id="alcohol_consumption" name="Alcohol Consumption"/>
+      <risk_factor id="smoking" name="Smoking"/>
+      <risk_factor id="sedentary_lifestyle" name="Sedentary Lifestyle"/>
+      <risk_factor id="obesity" name="Obesity"/>
+    </risk_factors>
+    
+    <!-- Treatments -->
+    <treatments>
+      <treatment id="cognitive_behavioral_therapy" name="Cognitive Behavioral Therapy"/>
+      <treatment id="antidepressant_medication" name="Antidepressant Medication"/>
+      <treatment id="anxiolytic_medication" name="Anxiolytic Medication"/>
+      <treatment id="triptans" name="Triptans"/>
+      <treatment id="anticonvulsants" name="Anticonvulsants"/>
+      <treatment id="levodopa" name="Levodopa"/>
+      <treatment id="cholinesterase_inhibitors" name="Cholinesterase Inhibitors"/>
+      <treatment id="physiotherapy" name="Physiotherapy"/>
+      <treatment id="occupational_therapy" name="Occupational Therapy"/>
+      <treatment id="lifestyle_modifications" name="Lifestyle Modifications"/>
+    </treatments>
+    
+    <!-- Investigations -->
+    <investigations>
+      <investigation id="psychiatric_evaluation" name="Psychiatric Evaluation"/>
+      <investigation id="cognitive_tests" name="Cognitive Tests"/>
+      <investigation id="brain_mri" name="Brain MRI"/>
+      <investigation id="brain_ct" name="Brain CT"/>
+      <investigation id="eeg" name="EEG"/>
+      <investigation id="blood_tests" name="Blood Tests"/>
+      <investigation id="reflex_testing" name="Reflex Testing"/>
+      <investigation id="emg" name="EMG"/>
+    </investigations>
+    
+  </knowledge_base>
+  
+  <!-- DIAGNOSTIC RULES -->
+  <diagnostic_rules>
+    
+    <!-- Rule 1: Generalized Anxiety Disorder -->
+    <rule id="rule_1" disease="generalized_anxiety_disorder">
+      <required_symptoms minimum_count="4">
+        <symptom ref="persistent_worry" required="true"/>
+        <symptom ref="excessive_nervousness" required="true"/>
+        <symptom ref="concentration_difficulties" required="true"/>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="muscle_tension"/>
+          <symptom ref="sleep_disturbances"/>
+        </symptom_group>
+      </required_symptoms>
+      <required_risk_factors>
+        <risk_factor_group operator="OR" required="true">
+          <risk_factor ref="chronic_stress"/>
+          <risk_factor ref="genetic_predisposition"/>
+        </risk_factor_group>
+      </required_risk_factors>
+    </rule>
+    
+    <!-- Rule 2: Panic Disorder -->
+    <rule id="rule_2" disease="panic_disorder">
+      <required_symptoms minimum_count="4">
+        <symptom ref="heart_palpitations" required="true"/>
+        <symptom ref="excessive_sweating" required="true"/>
+        <symptom ref="tremors" required="true"/>
+        <symptom ref="excessive_nervousness" required="true"/>
+      </required_symptoms>
+    </rule>
+    
+    <!-- Rule 3: Major Depression -->
+    <rule id="rule_3" disease="major_depression">
+      <required_symptoms minimum_count="5">
+        <symptom ref="persistent_sadness" required="true"/>
+        <symptom ref="loss_of_interest" required="true"/>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="appetite_changes"/>
+          <symptom ref="sleep_disturbances"/>
+        </symptom_group>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="chronic_fatigue"/>
+          <symptom ref="concentration_difficulties"/>
+        </symptom_group>
+      </required_symptoms>
+      <required_risk_factors>
+        <risk_factor_group operator="OR" required="true">
+          <risk_factor ref="chronic_stress"/>
+          <risk_factor ref="genetic_predisposition"/>
+        </risk_factor_group>
+      </required_risk_factors>
+    </rule>
+    
+    <!-- Rule 4: Chronic Migraine -->
+    <rule id="rule_4" disease="chronic_migraine">
+      <required_symptoms minimum_count="2">
+        <symptom ref="pulsating_headache" required="true"/>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="light_sensitivity"/>
+          <symptom ref="nausea_vomiting"/>
+        </symptom_group>
+      </required_symptoms>
+    </rule>
+    
+    <!-- Rule 5: Epilepsy -->
+    <rule id="rule_5" disease="epilepsy">
+      <required_symptoms>
+        <symptom ref="seizures" required="true"/>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="loss_of_consciousness"/>
+          <symptom ref="tremors"/>
+        </symptom_group>
+      </required_symptoms>
+      <required_risk_factors>
+        <risk_factor_group operator="OR" required="true">
+          <risk_factor ref="head_trauma"/>
+          <risk_factor ref="genetic_predisposition"/>
+        </risk_factor_group>
+      </required_risk_factors>
+    </rule>
+    
+    <!-- Rule 6: Parkinson's Disease -->
+    <rule id="rule_6" disease="parkinsons_disease">
+      <required_symptoms>
+        <symptom ref="resting_tremor" required="true"/>
+        <symptom ref="muscle_rigidity" required="true"/>
+        <symptom ref="slowness_of_movement" required="true"/>
+      </required_symptoms>
+      <required_risk_factors>
+        <risk_factor ref="advanced_age" required="true"/>
+      </required_risk_factors>
+    </rule>
+    
+    <!-- Rule 7: Alzheimer's Disease -->
+    <rule id="rule_7" disease="alzheimers_disease">
+      <required_symptoms minimum_count="3">
+        <symptom ref="recent_memory_loss" required="true"/>
+        <symptom ref="time_space_disorientation" required="true"/>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="speech_difficulties"/>
+          <symptom ref="judgment_difficulties"/>
+        </symptom_group>
+      </required_symptoms>
+      <required_risk_factors>
+        <risk_factor ref="advanced_age" required="true"/>
+      </required_risk_factors>
+    </rule>
+    
+    <!-- Rule 8: Peripheral Neuropathy -->
+    <rule id="rule_8" disease="peripheral_neuropathy">
+      <required_symptoms>
+        <symptom ref="limb_numbness" required="true"/>
+        <symptom ref="tingling_sensation" required="true"/>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="neuropathic_pain"/>
+          <symptom ref="muscle_weakness"/>
+        </symptom_group>
+      </required_symptoms>
+      <required_risk_factors>
+        <risk_factor_group operator="OR" required="true">
+          <risk_factor ref="diabetes"/>
+          <risk_factor ref="alcohol_consumption"/>
+        </risk_factor_group>
+      </required_risk_factors>
+    </rule>
+    
+    <!-- Rule 9: Brain Tumor -->
+    <rule id="rule_9" disease="brain_tumor">
+      <required_symptoms minimum_count="3">
+        <symptom ref="morning_headache" required="true"/>
+        <symptom ref="projectile_vomiting" required="true"/>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="seizures"/>
+          <symptom ref="personality_changes"/>
+        </symptom_group>
+      </required_symptoms>
+    </rule>
+    
+    <!-- Rule 10: Multiple Sclerosis -->
+    <rule id="rule_10" disease="multiple_sclerosis">
+      <required_symptoms minimum_count="3">
+        <symptom ref="muscle_weakness" required="true"/>
+        <symptom ref="limb_numbness" required="true"/>
+        <symptom_group operator="OR" required="true">
+          <symptom ref="speech_difficulties"/>
+          <symptom ref="tremors"/>
+        </symptom_group>
+      </required_symptoms>
+    </rule>
+    
+  </diagnostic_rules>
+  
+  <!-- TREATMENT RECOMMENDATIONS -->
+  <treatment_recommendations>
+    <disease_treatment disease="generalized_anxiety_disorder">
+      <treatment ref="cognitive_behavioral_therapy"/>
+      <treatment ref="anxiolytic_medication"/>
+      <treatment ref="lifestyle_modifications"/>
+    </disease_treatment>
+    
+    <disease_treatment disease="major_depression">
+      <treatment ref="cognitive_behavioral_therapy"/>
+      <treatment ref="antidepressant_medication"/>
+      <treatment ref="lifestyle_modifications"/>
+    </disease_treatment>
+    
+    <disease_treatment disease="chronic_migraine">
+      <treatment ref="triptans"/>
+      <treatment ref="lifestyle_modifications"/>
+    </disease_treatment>
+    
+    <disease_treatment disease="epilepsy">
+      <treatment ref="anticonvulsants"/>
+    </disease_treatment>
+    
+    <disease_treatment disease="parkinsons_disease">
+      <treatment ref="levodopa"/>
+      <treatment ref="physiotherapy"/>
+      <treatment ref="occupational_therapy"/>
+    </disease_treatment>
+    
+    <disease_treatment disease="alzheimers_disease">
+      <treatment ref="cholinesterase_inhibitors"/>
+      <treatment ref="occupational_therapy"/>
+    </disease_treatment>
+  </treatment_recommendations>
+  
+  <!-- INVESTIGATION RECOMMENDATIONS -->
+  <investigation_recommendations>
+    <disease_investigation disease="generalized_anxiety_disorder">
+      <investigation ref="psychiatric_evaluation"/>
+    </disease_investigation>
+    
+    <disease_investigation disease="panic_disorder">
+      <investigation ref="psychiatric_evaluation"/>
+    </disease_investigation>
+    
+    <disease_investigation disease="major_depression">
+      <investigation ref="psychiatric_evaluation"/>
+      <investigation ref="blood_tests"/>
+    </disease_investigation>
+    
+    <disease_investigation disease="brain_tumor">
+      <investigation ref="brain_mri"/>
+      <investigation ref="brain_ct"/>
+    </disease_investigation>
+    
+    <disease_investigation disease="alzheimers_disease">
+      <investigation ref="brain_mri"/>
+      <investigation ref="cognitive_tests"/>
+    </disease_investigation>
+    
+    <disease_investigation disease="epilepsy">
+      <investigation ref="eeg"/>
+      <investigation ref="brain_mri"/>
+    </disease_investigation>
+    
+    <disease_investigation disease="peripheral_neuropathy">
+      <investigation ref="emg"/>
+      <investigation ref="blood_tests"/>
+    </disease_investigation>
+  </investigation_recommendations>
+  
+  <!-- SEVERITY CALCULATION -->
+  <severity_levels>
+    <level name="mild" min_symptoms="0" max_symptoms="3"/>
+    <level name="moderate" min_symptoms="4" max_symptoms="6"/>
+    <level name="severe" min_symptoms="7" max_symptoms="999"/>
+  </severity_levels>
+  
+  <!-- CLINICAL EXAMPLES -->
+  <clinical_examples>
+    
+    <example id="example_anxiety" name="Patient with Anxiety">
+      <symptoms>
+        <symptom ref="excessive_nervousness"/>
+        <symptom ref="persistent_worry"/>
+        <symptom ref="heart_palpitations"/>
+        <symptom ref="concentration_difficulties"/>
+        <symptom ref="muscle_tension"/>
+        <symptom ref="sleep_disturbances"/>
+      </symptoms>
+      <risk_factors>
+        <risk_factor ref="chronic_stress"/>
+        <risk_factor ref="sedentary_lifestyle"/>
+      </risk_factors>
+    </example>
+    
+    <example id="example_depression" name="Patient with Depression">
+      <symptoms>
+        <symptom ref="persistent_sadness"/>
+        <symptom ref="loss_of_interest"/>
+        <symptom ref="chronic_fatigue"/>
+        <symptom ref="sleep_disturbances"/>
+        <symptom ref="appetite_changes"/>
+        <symptom ref="concentration_difficulties"/>
+      </symptoms>
+      <risk_factors>
+        <risk_factor ref="chronic_stress"/>
+        <risk_factor ref="genetic_predisposition"/>
+      </risk_factors>
+    </example>
+    
+    <example id="example_parkinsons" name="Patient with Parkinson's">
+      <symptoms>
+        <symptom ref="resting_tremor"/>
+        <symptom ref="muscle_rigidity"/>
+        <symptom ref="slowness_of_movement"/>
+        <symptom ref="postural_instability"/>
+      </symptoms>
+      <risk_factors>
+        <risk_factor ref="advanced_age"/>
+      </risk_factors>
+    </example>
+    
+    <example id="example_alzheimers" name="Patient with Alzheimer's">
+      <symptoms>
+        <symptom ref="recent_memory_loss"/>
+        <symptom ref="time_space_disorientation"/>
+        <symptom ref="speech_difficulties"/>
+        <symptom ref="personality_changes"/>
+      </symptoms>
+      <risk_factors>
+        <risk_factor ref="advanced_age"/>
+        <risk_factor ref="genetic_predisposition"/>
+      </risk_factors>
+    </example>
+    
+    <example id="example_epilepsy" name="Patient with Epilepsy">
+      <symptoms>
+        <symptom ref="seizures"/>
+        <symptom ref="loss_of_consciousness"/>
+        <symptom ref="tremors"/>
+      </symptoms>
+      <risk_factors>
+        <risk_factor ref="head_trauma"/>
+      </risk_factors>
+    </example>
+    
+  </clinical_examples>
+  
+</neurological_expert_system>
