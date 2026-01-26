@@ -1,0 +1,708 @@
+{
+  "knowledge_base": {
+    "symptoms": {
+      "excessive_nervousness": {
+        "name": "Excessive Nervousness"
+      },
+      "persistent_worry": {
+        "name": "Persistent Worry"
+      },
+      "heart_palpitations": {
+        "name": "Heart Palpitations"
+      },
+      "excessive_sweating": {
+        "name": "Excessive Sweating"
+      },
+      "tremors": {
+        "name": "Tremors"
+      },
+      "chronic_fatigue": {
+        "name": "Chronic Fatigue"
+      },
+      "concentration_difficulties": {
+        "name": "Concentration Difficulties"
+      },
+      "irritability": {
+        "name": "Irritability"
+      },
+      "muscle_tension": {
+        "name": "Muscle Tension"
+      },
+      "sleep_disturbances": {
+        "name": "Sleep Disturbances"
+      },
+      "persistent_sadness": {
+        "name": "Persistent Sadness"
+      },
+      "loss_of_interest": {
+        "name": "Loss of Interest"
+      },
+      "appetite_changes": {
+        "name": "Appetite Changes"
+      },
+      "suicidal_thoughts": {
+        "name": "Suicidal Thoughts"
+      },
+      "guilt_feelings": {
+        "name": "Guilt Feelings"
+      },
+      "pulsating_headache": {
+        "name": "Pulsating Headache"
+      },
+      "light_sensitivity": {
+        "name": "Light Sensitivity"
+      },
+      "nausea_vomiting": {
+        "name": "Nausea/Vomiting"
+      },
+      "seizures": {
+        "name": "Seizures"
+      },
+      "loss_of_consciousness": {
+        "name": "Loss of Consciousness"
+      },
+      "muscle_rigidity": {
+        "name": "Muscle Rigidity"
+      },
+      "resting_tremor": {
+        "name": "Resting Tremor"
+      },
+      "slowness_of_movement": {
+        "name": "Slowness of Movement"
+      },
+      "postural_instability": {
+        "name": "Postural Instability"
+      },
+      "recent_memory_loss": {
+        "name": "Recent Memory Loss"
+      },
+      "time_space_disorientation": {
+        "name": "Time/Space Disorientation"
+      },
+      "speech_difficulties": {
+        "name": "Speech Difficulties"
+      },
+      "personality_changes": {
+        "name": "Personality Changes"
+      },
+      "judgment_difficulties": {
+        "name": "Judgment Difficulties"
+      },
+      "limb_numbness": {
+        "name": "Limb Numbness"
+      },
+      "tingling_sensation": {
+        "name": "Tingling Sensation"
+      },
+      "muscle_weakness": {
+        "name": "Muscle Weakness"
+      },
+      "neuropathic_pain": {
+        "name": "Neuropathic Pain"
+      },
+      "projectile_vomiting": {
+        "name": "Projectile Vomiting"
+      },
+      "morning_headache": {
+        "name": "Morning Headache"
+      }
+    },
+    "diseases": {
+      "generalized_anxiety_disorder": {
+        "name": "Generalized Anxiety Disorder"
+      },
+      "panic_disorder": {
+        "name": "Panic Disorder"
+      },
+      "major_depression": {
+        "name": "Major Depression"
+      },
+      "chronic_migraine": {
+        "name": "Chronic Migraine"
+      },
+      "epilepsy": {
+        "name": "Epilepsy"
+      },
+      "parkinsons_disease": {
+        "name": "Parkinson's Disease"
+      },
+      "alzheimers_disease": {
+        "name": "Alzheimer's Disease"
+      },
+      "peripheral_neuropathy": {
+        "name": "Peripheral Neuropathy"
+      },
+      "brain_tumor": {
+        "name": "Brain Tumor"
+      },
+      "multiple_sclerosis": {
+        "name": "Multiple Sclerosis"
+      }
+    },
+    "risk_factors": {
+      "chronic_stress": {
+        "name": "Chronic Stress"
+      },
+      "genetic_predisposition": {
+        "name": "Genetic Predisposition"
+      },
+      "head_trauma": {
+        "name": "Head Trauma"
+      },
+      "advanced_age": {
+        "name": "Advanced Age"
+      },
+      "diabetes": {
+        "name": "Diabetes"
+      },
+      "hypertension": {
+        "name": "Hypertension"
+      },
+      "alcohol_consumption": {
+        "name": "Alcohol Consumption"
+      },
+      "smoking": {
+        "name": "Smoking"
+      },
+      "sedentary_lifestyle": {
+        "name": "Sedentary Lifestyle"
+      },
+      "obesity": {
+        "name": "Obesity"
+      }
+    },
+    "treatments": {
+      "cognitive_behavioral_therapy": {
+        "name": "Cognitive Behavioral Therapy"
+      },
+      "antidepressant_medication": {
+        "name": "Antidepressant Medication"
+      },
+      "anxiolytic_medication": {
+        "name": "Anxiolytic Medication"
+      },
+      "triptans": {
+        "name": "Triptans"
+      },
+      "anticonvulsants": {
+        "name": "Anticonvulsants"
+      },
+      "levodopa": {
+        "name": "Levodopa"
+      },
+      "cholinesterase_inhibitors": {
+        "name": "Cholinesterase Inhibitors"
+      },
+      "physiotherapy": {
+        "name": "Physiotherapy"
+      },
+      "occupational_therapy": {
+        "name": "Occupational Therapy"
+      },
+      "lifestyle_modifications": {
+        "name": "Lifestyle Modifications"
+      }
+    },
+    "investigations": {
+      "psychiatric_evaluation": {
+        "name": "Psychiatric Evaluation"
+      },
+      "cognitive_tests": {
+        "name": "Cognitive Tests"
+      },
+      "brain_mri": {
+        "name": "Brain MRI"
+      },
+      "brain_ct": {
+        "name": "Brain CT"
+      },
+      "eeg": {
+        "name": "EEG"
+      },
+      "blood_tests": {
+        "name": "Blood Tests"
+      },
+      "reflex_testing": {
+        "name": "Reflex Testing"
+      },
+      "emg": {
+        "name": "EMG"
+      }
+    }
+  },
+  "diagnostic_rules": {
+    "rule_1": {
+      "disease": "generalized_anxiety_disorder",
+      "required_symptoms": {
+        "minimum_count": 4,
+        "symptoms": [
+          {
+            "ref": "persistent_worry",
+            "required": true
+          },
+          {
+            "ref": "excessive_nervousness",
+            "required": true
+          },
+          {
+            "ref": "concentration_difficulties",
+            "required": true
+          }
+        ],
+        "symptom_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "muscle_tension",
+              "sleep_disturbances"
+            ]
+          }
+        ]
+      },
+      "required_risk_factors": {
+        "risk_factors": [],
+        "risk_factor_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "risk_factors": [
+              "chronic_stress",
+              "genetic_predisposition"
+            ]
+          }
+        ]
+      }
+    },
+    "rule_2": {
+      "disease": "panic_disorder",
+      "required_symptoms": {
+        "minimum_count": 4,
+        "symptoms": [
+          {
+            "ref": "heart_palpitations",
+            "required": true
+          },
+          {
+            "ref": "excessive_sweating",
+            "required": true
+          },
+          {
+            "ref": "tremors",
+            "required": true
+          },
+          {
+            "ref": "excessive_nervousness",
+            "required": true
+          }
+        ],
+        "symptom_groups": []
+      },
+      "required_risk_factors": {}
+    },
+    "rule_3": {
+      "disease": "major_depression",
+      "required_symptoms": {
+        "minimum_count": 5,
+        "symptoms": [
+          {
+            "ref": "persistent_sadness",
+            "required": true
+          },
+          {
+            "ref": "loss_of_interest",
+            "required": true
+          }
+        ],
+        "symptom_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "appetite_changes",
+              "sleep_disturbances"
+            ]
+          },
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "chronic_fatigue",
+              "concentration_difficulties"
+            ]
+          }
+        ]
+      },
+      "required_risk_factors": {
+        "risk_factors": [],
+        "risk_factor_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "risk_factors": [
+              "chronic_stress",
+              "genetic_predisposition"
+            ]
+          }
+        ]
+      }
+    },
+    "rule_4": {
+      "disease": "chronic_migraine",
+      "required_symptoms": {
+        "minimum_count": 2,
+        "symptoms": [
+          {
+            "ref": "pulsating_headache",
+            "required": true
+          }
+        ],
+        "symptom_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "light_sensitivity",
+              "nausea_vomiting"
+            ]
+          }
+        ]
+      },
+      "required_risk_factors": {}
+    },
+    "rule_5": {
+      "disease": "epilepsy",
+      "required_symptoms": {
+        "minimum_count": 0,
+        "symptoms": [
+          {
+            "ref": "seizures",
+            "required": true
+          }
+        ],
+        "symptom_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "loss_of_consciousness",
+              "tremors"
+            ]
+          }
+        ]
+      },
+      "required_risk_factors": {
+        "risk_factors": [],
+        "risk_factor_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "risk_factors": [
+              "head_trauma",
+              "genetic_predisposition"
+            ]
+          }
+        ]
+      }
+    },
+    "rule_6": {
+      "disease": "parkinsons_disease",
+      "required_symptoms": {
+        "minimum_count": 0,
+        "symptoms": [
+          {
+            "ref": "resting_tremor",
+            "required": true
+          },
+          {
+            "ref": "muscle_rigidity",
+            "required": true
+          },
+          {
+            "ref": "slowness_of_movement",
+            "required": true
+          }
+        ],
+        "symptom_groups": []
+      },
+      "required_risk_factors": {
+        "risk_factors": [
+          {
+            "ref": "advanced_age",
+            "required": true
+          }
+        ],
+        "risk_factor_groups": []
+      }
+    },
+    "rule_7": {
+      "disease": "alzheimers_disease",
+      "required_symptoms": {
+        "minimum_count": 3,
+        "symptoms": [
+          {
+            "ref": "recent_memory_loss",
+            "required": true
+          },
+          {
+            "ref": "time_space_disorientation",
+            "required": true
+          }
+        ],
+        "symptom_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "speech_difficulties",
+              "judgment_difficulties"
+            ]
+          }
+        ]
+      },
+      "required_risk_factors": {
+        "risk_factors": [
+          {
+            "ref": "advanced_age",
+            "required": true
+          }
+        ],
+        "risk_factor_groups": []
+      }
+    },
+    "rule_8": {
+      "disease": "peripheral_neuropathy",
+      "required_symptoms": {
+        "minimum_count": 0,
+        "symptoms": [
+          {
+            "ref": "limb_numbness",
+            "required": true
+          },
+          {
+            "ref": "tingling_sensation",
+            "required": true
+          }
+        ],
+        "symptom_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "neuropathic_pain",
+              "muscle_weakness"
+            ]
+          }
+        ]
+      },
+      "required_risk_factors": {
+        "risk_factors": [],
+        "risk_factor_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "risk_factors": [
+              "diabetes",
+              "alcohol_consumption"
+            ]
+          }
+        ]
+      }
+    },
+    "rule_9": {
+      "disease": "brain_tumor",
+      "required_symptoms": {
+        "minimum_count": 3,
+        "symptoms": [
+          {
+            "ref": "morning_headache",
+            "required": true
+          },
+          {
+            "ref": "projectile_vomiting",
+            "required": true
+          }
+        ],
+        "symptom_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "seizures",
+              "personality_changes"
+            ]
+          }
+        ]
+      },
+      "required_risk_factors": {}
+    },
+    "rule_10": {
+      "disease": "multiple_sclerosis",
+      "required_symptoms": {
+        "minimum_count": 3,
+        "symptoms": [
+          {
+            "ref": "muscle_weakness",
+            "required": true
+          },
+          {
+            "ref": "limb_numbness",
+            "required": true
+          }
+        ],
+        "symptom_groups": [
+          {
+            "operator": "OR",
+            "required": true,
+            "symptoms": [
+              "speech_difficulties",
+              "tremors"
+            ]
+          }
+        ]
+      },
+      "required_risk_factors": {}
+    }
+  },
+  "treatment_recommendations": {
+    "generalized_anxiety_disorder": [
+      "cognitive_behavioral_therapy",
+      "anxiolytic_medication",
+      "lifestyle_modifications"
+    ],
+    "major_depression": [
+      "cognitive_behavioral_therapy",
+      "antidepressant_medication",
+      "lifestyle_modifications"
+    ],
+    "chronic_migraine": [
+      "triptans",
+      "lifestyle_modifications"
+    ],
+    "epilepsy": [
+      "anticonvulsants"
+    ],
+    "parkinsons_disease": [
+      "levodopa",
+      "physiotherapy",
+      "occupational_therapy"
+    ],
+    "alzheimers_disease": [
+      "cholinesterase_inhibitors",
+      "occupational_therapy"
+    ]
+  },
+  "investigation_recommendations": {
+    "generalized_anxiety_disorder": [
+      "psychiatric_evaluation"
+    ],
+    "panic_disorder": [
+      "psychiatric_evaluation"
+    ],
+    "major_depression": [
+      "psychiatric_evaluation",
+      "blood_tests"
+    ],
+    "brain_tumor": [
+      "brain_mri",
+      "brain_ct"
+    ],
+    "alzheimers_disease": [
+      "brain_mri",
+      "cognitive_tests"
+    ],
+    "epilepsy": [
+      "eeg",
+      "brain_mri"
+    ],
+    "peripheral_neuropathy": [
+      "emg",
+      "blood_tests"
+    ]
+  },
+  "severity_levels": [
+    {
+      "name": "mild",
+      "min_symptoms": 0,
+      "max_symptoms": 3
+    },
+    {
+      "name": "moderate",
+      "min_symptoms": 4,
+      "max_symptoms": 6
+    },
+    {
+      "name": "severe",
+      "min_symptoms": 7,
+      "max_symptoms": 999
+    }
+  ],
+  "clinical_examples": {
+    "example_anxiety": {
+      "name": "Patient with Anxiety",
+      "symptoms": [
+        "excessive_nervousness",
+        "persistent_worry",
+        "heart_palpitations",
+        "concentration_difficulties",
+        "muscle_tension",
+        "sleep_disturbances"
+      ],
+      "risk_factors": [
+        "chronic_stress",
+        "sedentary_lifestyle"
+      ]
+    },
+    "example_depression": {
+      "name": "Patient with Depression",
+      "symptoms": [
+        "persistent_sadness",
+        "loss_of_interest",
+        "chronic_fatigue",
+        "sleep_disturbances",
+        "appetite_changes",
+        "concentration_difficulties"
+      ],
+      "risk_factors": [
+        "chronic_stress",
+        "genetic_predisposition"
+      ]
+    },
+    "example_parkinsons": {
+      "name": "Patient with Parkinson's",
+      "symptoms": [
+        "resting_tremor",
+        "muscle_rigidity",
+        "slowness_of_movement",
+        "postural_instability"
+      ],
+      "risk_factors": [
+        "advanced_age"
+      ]
+    },
+    "example_alzheimers": {
+      "name": "Patient with Alzheimer's",
+      "symptoms": [
+        "recent_memory_loss",
+        "time_space_disorientation",
+        "speech_difficulties",
+        "personality_changes"
+      ],
+      "risk_factors": [
+        "advanced_age",
+        "genetic_predisposition"
+      ]
+    },
+    "example_epilepsy": {
+      "name": "Patient with Epilepsy",
+      "symptoms": [
+        "seizures",
+        "loss_of_consciousness",
+        "tremors"
+      ],
+      "risk_factors": [
+        "head_trauma"
+      ]
+    }
+  }
+}

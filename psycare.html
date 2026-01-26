@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsyCare - Symptom Analysis & Diagnosis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea::placeholder {
+            color: #999;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-analyze {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-analyze:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-analyze:active {
+            transform: translateY(0);
+        }
+
+        .btn-clear {
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
+
+        .btn-clear:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            margin-top: 10px;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.4);
+        }
+
+        .btn-download:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .results h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .analysis-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #764ba2;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+        }
+
+        .section-content {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .diagnosis-item {
+            background: white;
+            padding: 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+
+        .diagnosis-name {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.05em;
+        }
+
+        .diagnosis-confidence {
+            color: #764ba2;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .medication-item,
+        .recommendation-item {
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border-left: 4px solid #11998e;
+            color: #333;
+        }
+
+        .severity-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .severity-mild {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .severity-moderate {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .severity-severe {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .loading {
+            text-align: center;
+            color: #667eea;
+            display: none;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #999;
+            padding: 40px 20px;
+        }
+
+        .empty-state svg {
+            width: 60px;
+            height: 60px;
+            opacity: 0.5;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 PsyCare</h1>
+            <p>Neurological Symptom Analysis & Diagnosis System</p>
+        </header>
+
+        <div class="content">
+            <div class="card">
+                <h2>📋 Describe Your Symptoms</h2>
+                <form id="symptomForm">
+                    <div class="form-group">
+                        <label for="symptoms">Please describe your symptoms in detail:</label>
+                        <textarea
+                            id="symptoms"
+                            name="symptoms"
+                            placeholder="Example: I have been experiencing persistent worry, excessive nervousness, and difficulty concentrating for the past month. I also have trouble sleeping at night and feel muscle tension."
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px; padding: 12px; background: #f5f5f5; border-radius: 8px;">
+                        <label style="display: flex; align-items: center; font-weight: 600; cursor: pointer; color: #333;">
+                            <input type="checkbox" id="useAI" name="useAI" style="margin-right: 8px; width: auto; cursor: pointer;">
+                            ✨ Use AI-Powered Analysis (Claude Opus)
+                        </label>
+                        <small style="color: #666; display: block; margin-top: 8px; line-height: 1.5;">
+                            <strong>AI Mode:</strong> Uses Claude with the complete medical knowledge base for intelligent analysis.<br>
+                            <strong>Rule Mode:</strong> Uses pattern matching (faster, no API needed).
+                        </small>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="btn-analyze">🔍 Analyze Symptoms</button>
+                        <button type="reset" class="btn-clear">🗑️ Clear</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>ℹ️ How It Works</h2>
+                <div style="color: #666; line-height: 1.8;">
+                    <p><strong>Step 1:</strong> Describe your symptoms in the text box</p>
+                    <p><strong>Step 2:</strong> Click "Analyze Symptoms" to run the diagnosis</p>
+                    <p><strong>Step 3:</strong> Review the analysis results</p>
+                    <p><strong>Step 4:</strong> Download a detailed PDF report</p>
+                    <hr style="margin: 15px 0; border: none; border-top: 1px solid #ddd;">
+                    <p style="font-size: 0.9em; margin-top: 15px; color: #999;">
+                        <strong>⚠️ Disclaimer:</strong> This system is for educational purposes only.
+                        It is not a substitute for professional medical advice. Always consult with a qualified healthcare provider for diagnosis and treatment.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analyzing symptoms...</p>
+        </div>
+
+        <div class="error" id="errorDiv"></div>
+        <div class="success" id="successDiv"></div>
+
+        <div class="results" id="results" style="display: none;">
+            <h2>📊 Analysis Results</h2>
+            <div id="resultsContent"></div>
+            <button class="btn-download" id="downloadBtn" style="width: 100%;">📥 Download PDF Report</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('symptomForm');
+        const loading = document.getElementById('loading');
+        const resultsDiv = document.getElementById('results');
+        const resultsContent = document.getElementById('resultsContent');
+        const errorDiv = document.getElementById('errorDiv');
+        const successDiv = document.getElementById('successDiv');
+        const downloadBtn = document.getElementById('downloadBtn');
+        let lastAnalysisData = null;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const symptoms = document.getElementById('symptoms').value.trim();
+            const useAI = document.getElementById('useAI').checked;
+
+            if (!symptoms) {
+                showError('Please describe your symptoms');
+                return;
+            }
+
+            loading.style.display = 'block';
+            resultsDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
+
+            try {
+                const response = await fetch('http://localhost:3000/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ symptoms, useAI })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Analysis failed');
+                }
+
+                const data = await response.json();
+                lastAnalysisData = data;
+                displayResults(data);
+                showSuccess('Analysis completed successfully!');
+            } catch (error) {
+                showError('Error during analysis: ' + error.message);
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+
+        function displayResults(data) {
+            let html = '';
+
+            // Analysis Mode Badge
+            if (data.analysisMode) {
+                html += `<div style="background: #f0f0f0; padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-size: 0.9em; color: #666;">
+                    <strong>Analysis Mode:</strong> ${data.analysisMode}
+                </div>`;
+            }
+
+            // Possible Diagnoses
+            if (data.diagnoses && data.diagnoses.length > 0) {
+                html += '<div class="analysis-section">';
+                html += '<div class="section-title"><span class="section-icon">📋</span> Possible Diagnoses</div>';
+                html += '<div class="section-content">';
+                data.diagnoses.forEach((diagnosis, index) => {
+                    const severityClass = `severity-${diagnosis.severity}`;
+                    html += `
+                        <div class="diagnosis-item">
+                            <div class="diagnosis-name">${index + 1}. ${diagnosis.name}</div>
+                            <div class="diagnosis-confidence">Confidence Level: ${diagnosis.confidence}%</div>
+                            <span class="severity-badge ${severityClass}">Severity: ${diagnosis.severity.toUpperCase()}</span>
+                        </div>
+                    `;
+                });
+                html += '</div></div>';
+            }
+
+            // Medications
+            if (data.medications && data.medications.length > 0) {
+                html += '<div class="analysis-section">';
+                html += '<div class="section-title"><span class="section-icon">💊</span> Recommended Medications</div>';
+                html += '<div class="section-content">';
+                data.medications.forEach(med => {
+                    html += `<div class="medication-item">• ${med}</div>`;
+                });
+                html += '</div></div>';
+            }
+
+            // Recommendations
+            if (data.recommendations && data.recommendations.length > 0) {
+                html += '<div class="analysis-section">';
+                html += '<div class="section-title"><span class="section-icon">🏥</span> Treatment Recommendations</div>';
+                html += '<div class="section-content">';
+                data.recommendations.forEach(rec => {
+                    html += `<div class="recommendation-item">• ${rec}</div>`;
+                });
+                html += '</div></div>';
+            }
+
+            // Investigations
+            if (data.investigations && data.investigations.length > 0) {
+                html += '<div class="analysis-section">';
+                html += '<div class="section-title"><span class="section-icon">🔬</span> Suggested Investigations</div>';
+                html += '<div class="section-content">';
+                data.investigations.forEach(inv => {
+                    html += `<div class="recommendation-item">• ${inv}</div>`;
+                });
+                html += '</div></div>';
+            }
+
+            // Overall Assessment
+            if (data.summary) {
+                html += '<div class="analysis-section">';
+                html += '<div class="section-title"><span class="section-icon">📝</span> Overall Assessment</div>';
+                html += '<div class="section-content">';
+                html += `<p style="color: #333; line-height: 1.6;">${data.summary}</p>`;
+                html += '</div></div>';
+            }
+
+            resultsContent.innerHTML = html;
+            resultsDiv.style.display = 'block';
+        }
+
+        downloadBtn.addEventListener('click', async () => {
+            if (!lastAnalysisData) return;
+
+            try {
+                downloadBtn.disabled = true;
+                downloadBtn.textContent = '📥 Generating PDF...';
+
+                const response = await fetch('http://localhost:3000/generate-pdf', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(lastAnalysisData)
+                });
+
+                if (!response.ok) {
+                    throw new Error('PDF generation failed');
+                }
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `psycare-report-${new Date().getTime()}.pdf`;
+                document.body.appendChild(link);
+                link.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(link);
+
+                showSuccess('PDF downloaded successfully!');
+            } catch (error) {
+                showError('Error generating PDF: ' + error.message);
+            } finally {
+                downloadBtn.disabled = false;
+                downloadBtn.textContent = '📥 Download PDF Report';
+            }
+        });
+
+        function showError(message) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        function showSuccess(message) {
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
